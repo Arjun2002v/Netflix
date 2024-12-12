@@ -1,7 +1,25 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
-const Home = () => {
-  return <div>Hi welcome to niggaflix</div>;
+const Home = ({ usings }) => {
+  const location = useLocation();
+  const user = location.state?.user; // Access the user data passed from Login
+
+  return (
+    <>
+      <>
+        {user ? (
+          <>
+            <div>{user}</div>
+          </>
+        ) : (
+          <>
+            <h2>Nigg</h2>
+          </>
+        )}
+      </>
+    </>
+  );
 };
 
 export default Home;
